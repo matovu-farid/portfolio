@@ -40,7 +40,7 @@ const removeProjects = async()=>{
 const fetchAll = async ()=>{
  
   const docs = await getDocs(collection(db, "projects"))
- let promises: Promise<DocumentSnapshot>[] = []
+ let promises: any = []
   docs.forEach(doc=>promises.push(getDoc(doc.ref)))
 
  const projects = (await Promise.all(promises)).map(snap=>({...snap.data(),id: snap.id}))

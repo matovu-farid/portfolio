@@ -1,12 +1,26 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 import { Project } from '../interfaces/project'
-import { fetchAll } from './project_functions'
+import { deleteProject, fetchAll, updateProject } from './project_functions'
 
 // First, create the thunk
 export const fetchAllProjects = createAsyncThunk(
   'projects/fetch',
   async () => {
     const projects = await fetchAll()
+    return projects
+  }
+)
+export const updateAProject= createAsyncThunk(
+  'projects/update',
+  async (project: any) => {
+    return await updateProject(project)
+    
+  }
+)
+export const deleteAProjects = createAsyncThunk(
+  'projects/fetch',
+  async (project:Project) => {
+    const projects = await deleteProject(project)
     return projects
   }
 )
@@ -25,11 +39,20 @@ export const projectSlice = createSlice({
     
   },
   extraReducers: (builder) => {
-    // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(fetchAllProjects.fulfilled, (state, action) => {
-      // Add user to the state array
       state.all = action.payload
     })
+    builder.addCase(updateAProject.fulfilled, (state, action:PayloadAction<any>) => {
+         state.all = state.all.map(project=> {
+         if(project.id === action.payload.id){
+          return action.payload
+         }
+         return project
+        })
+    })
+    builder.addCase(deleteAProjects.fulfilled, (state, action:PayloadAction<any>) => {
+      state.all = state.all.filter(project=>project.id === action.payload.id)
+ })
   },
 })
 
