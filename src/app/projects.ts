@@ -1,26 +1,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { Project } from '../interfaces/project'
+import { fetchAll } from './project_functions'
 
 // First, create the thunk
-const fetchUserById = createAsyncThunk(
+export const fetchAllProjects = createAsyncThunk(
   'projects/fetch',
   async () => {
-    const response = await userAPI.fetchById(userId)
-    return response.data
+    const projects = await fetchAll()
+    return projects
   }
 )
-export interface Project {
-  name: string,
-  description: string,
-  github: string,
-  image: string,
-  tags: string[]
-}
 export interface ProjectState {
-  value: Project[]
+  all: Project[]
 }
 
 const initialState: ProjectState = {
-  value: [],
+  all: [],
 }
 
 export const projectSlice = createSlice({
@@ -31,14 +26,12 @@ export const projectSlice = createSlice({
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(fetchUserById.fulfilled, (state, action) => {
+    builder.addCase(fetchAllProjects.fulfilled, (state, action) => {
       // Add user to the state array
-      state.entities.push(action.payload)
+      state.all = action.payload
     })
   },
 })
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = projectSlice.actions
 
 export default projectSlice.reducer

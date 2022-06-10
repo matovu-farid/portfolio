@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { collection, addDoc,getFirestore, deleteDoc, getDocs } from "firebase/firestore"; 
-import * as fs from 'fs'
+import { collection, getFirestore, deleteDoc, getDocs,getDoc } from "firebase/firestore"; 
+
+import { Project } from "../interfaces/project";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,23 +22,31 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const removeProjects = async()=>{
-  console.log('removing...')
   const docs = await getDocs(collection(db, "projects"))
  let promises: any[] = []
   docs.forEach(doc=>promises.push(deleteDoc(doc.ref)))
  await Promise.all(promises)
 }
 
-const post = async ()=>{
-  console.log('posting...')
-  const projects = JSON.parse(fs.readFileSync('projects.json', 'utf8'));
-  const promises: any[] = []
-  projects.forEach((project: any)=>{
-     promises.push(addDoc(collection(db, "projects"), project))   
-  })
-  await Promise.all(promises)
+// const post = async ()=>{
+//   const projects = JSON.parse(readFileSync('projects.json', 'utf8'));
+//   const promises: any[] = []
+//   projects.forEach((project: any)=>{
+//      promises.push(addDoc(collection(db, "projects"), project))   
+//   })
+//   await Promise.all(promises)
 
+// }
+const fetchAll = async ():Promise<Project[]>=>{
+ 
+  const docs = await getDocs(collection(db, "projects"))
+ let promises: any[] = []
+  docs.forEach(doc=>promises.push(getDoc(doc.ref)))
+
+ const projects = (await Promise.all(promises)).map(snap=>snap.data())
+ return projects
 }
 
-   post()
+export {fetchAll,removeProjects}
+
  // removeProjects()
