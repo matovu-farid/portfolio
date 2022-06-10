@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { collection, getFirestore, deleteDoc, getDocs,getDoc } from "firebase/firestore"; 
+import { collection, getFirestore, deleteDoc, getDocs,getDoc, addDoc, doc,DocumentSnapshot, updateDoc } from "firebase/firestore"; 
 
 import { Project } from "../interfaces/project";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -37,16 +37,31 @@ const removeProjects = async()=>{
 //   await Promise.all(promises)
 
 // }
-const fetchAll = async ():Promise<Project[]>=>{
+const fetchAll = async ()=>{
  
   const docs = await getDocs(collection(db, "projects"))
- let promises: any[] = []
+ let promises: Promise<DocumentSnapshot>[] = []
   docs.forEach(doc=>promises.push(getDoc(doc.ref)))
 
- const projects = (await Promise.all(promises)).map(snap=>snap.data())
+ const projects = (await Promise.all(promises)).map(snap=>({...snap.data(),id: snap.id}))
  return projects
 }
+const addProject = async (project: Project)=>{
+  return addDoc(collection(db, "projects"), project)
 
-export {fetchAll,removeProjects}
+}
+
+const updateProject = async (project:any)=>{
+  let docRef = doc(collection(db, "projects"),project.id)
+
+  return updateDoc(docRef, project)
+}
+const deleteProject = async (project: Project)=>{
+   let docRef = doc(collection(db, "projects"),project.id)
+  return deleteDoc(docRef)
+
+}
+
+export {fetchAll,removeProjects, updateProject, deleteProject}
 
  // removeProjects()
