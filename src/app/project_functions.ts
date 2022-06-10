@@ -21,22 +21,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const removeProjects = async()=>{
-  const docs = await getDocs(collection(db, "projects"))
- let promises: any[] = []
-  docs.forEach(doc=>promises.push(deleteDoc(doc.ref)))
- await Promise.all(promises)
-}
-
-// const post = async ()=>{
-//   const projects = JSON.parse(readFileSync('projects.json', 'utf8'));
-//   const promises: any[] = []
-//   projects.forEach((project: any)=>{
-//      promises.push(addDoc(collection(db, "projects"), project))   
-//   })
-//   await Promise.all(promises)
-
-// }
 const fetchAll = async ()=>{
  
   const docs = await getDocs(collection(db, "projects"))
@@ -62,6 +46,6 @@ const deleteProject = async (project: Project)=>{
 
 }
 
-export {fetchAll,removeProjects, updateProject, deleteProject}
+export {fetchAll,addProject, updateProject, deleteProject}
 
  // removeProjects()

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 import { Project } from '../interfaces/project'
-import { deleteProject, fetchAll, updateProject } from './project_functions'
+import { addProject, deleteProject, fetchAll, updateProject } from './project_functions'
 
 // First, create the thunk
 export const fetchAllProjects = createAsyncThunk(
@@ -13,15 +13,23 @@ export const fetchAllProjects = createAsyncThunk(
 export const updateAProject= createAsyncThunk(
   'projects/update',
   async (project: any) => {
-    return await updateProject(project)
+     await updateProject(project)
+    return project
+  }
+)
+export const addAProject= createAsyncThunk(
+  'projects/add',
+  async (project: Project) => {
+     await addProject(project)
+     return project
     
   }
 )
 export const deleteAProjects = createAsyncThunk(
-  'projects/fetch',
+  'projects/delete',
   async (project:Project) => {
-    const projects = await deleteProject(project)
-    return projects
+   await deleteProject(project)
+    return project
   }
 )
 export interface ProjectState {
@@ -41,6 +49,9 @@ export const projectSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchAllProjects.fulfilled, (state, action) => {
       state.all = action.payload
+    })
+    builder.addCase(addAProject.fulfilled, (state, action) => {
+      state.all.push(action.payload)
     })
     builder.addCase(updateAProject.fulfilled, (state, action:PayloadAction<any>) => {
          state.all = state.all.map(project=> {
