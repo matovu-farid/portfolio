@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import { Project } from "../interfaces/project";
 import {
   addProject,
@@ -12,24 +13,36 @@ export const fetchAllProjects = createAsyncThunk("projects/fetch", async () => {
   const projects = await fetchAll();
   return projects;
 });
+const toastMessege = (context:string)=>{
+   const lowercased= context.toLowerCase()
+  return {
+    pending: `${context} loading...⏳`,
+    error: `${context} failed 🤯`,
+    success: `Project ${lowercased} successful 😊`
+
+  }
+}
 export const updateAProject = createAsyncThunk(
   "projects/update",
   async (project: any) => {
-    await updateProject(project);
+     await toast.promise(updateProject(project),toastMessege('Update'))
+   
+   
     return project;
   }
 );
 export const addAProject = createAsyncThunk(
   "projects/add",
   async (project: Project) => {
-    await addProject(project);
+    
+    await toast.promise(addProject(project),toastMessege('Add'));
     return project;
   }
 );
 export const deleteAProject = createAsyncThunk(
   "projects/delete",
   async (project: Project) => {
-    await deleteProject(project);
+    await toast.promise(deleteProject(project),toastMessege('Delete'));
     return project;
   }
 );

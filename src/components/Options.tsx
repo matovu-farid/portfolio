@@ -28,7 +28,7 @@ const Options = (props: { project: Project}) => {
     dispatch(updateAProject(newProject))
     dispatch(resetWorkingProject())
     toggleDialog()
-    toast.success("Project updated successfully")
+    // toast.success("Project updated successfully")
   }
   const onCancel = ()=>{
     dispatch(resetWorkingProject())
