@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 
 import './App.css';
 import { fetchAllProjects } from './app/projects'
@@ -10,6 +10,7 @@ import Sidebar from './components/Sidebar';
 import { ToastContainer } from 'react-toastify';
 
   import 'react-toastify/dist/ReactToastify.css';
+import { ClipLoader } from 'react-spinners';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -25,12 +26,15 @@ function App() {
         </div>
         <div className="flex-1">
           <ToastContainer />
-        <Routes >
-          <Route path='/' element={ <Projects />} />
-          <Route path='/addproject' element={ <AddProjects />} />  
-        
+          
 
-      </Routes>
+            <Routes >
+              <Route path='/' element={ <Projects />} />
+              <Route path='/addproject' element={ <AddProjects />} />  
+            
+
+            </Routes>
+
         </div>
 
       </div>

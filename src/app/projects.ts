@@ -48,10 +48,12 @@ export const deleteAProject = createAsyncThunk(
 );
 export interface ProjectState {
   all: Project[];
+  loading: boolean;
 }
 
 const initialState: ProjectState = {
   all: [],
+  loading: true
 };
 
 export const projectSlice = createSlice({
@@ -61,6 +63,10 @@ export const projectSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchAllProjects.fulfilled, (state, action) => {
       state.all = action.payload;
+      state.loading = false;
+    });
+    builder.addCase(fetchAllProjects.pending, (state, action) => {
+      state.loading = true;
     });
     builder.addCase(addAProject.fulfilled, (state, action) => {
       state.all.push(action.payload);
