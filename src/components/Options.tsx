@@ -1,4 +1,5 @@
 import React, { FormEvent, useEffect, useState } from 'react'
+import { toast } from 'react-toastify';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { deleteAProject, updateAProject } from '../app/projects';
 import { resetWorkingProject, setWorkingProject } from '../app/working_project';
@@ -13,6 +14,7 @@ const Options = (props: { project: Project}) => {
 
   const onDelete = ()=>{
     dispatch(deleteAProject(project))
+    toast.success("Project deleted successfully")
   }
   const onUpdate = ()=>{
     const newProject = {
@@ -26,6 +28,7 @@ const Options = (props: { project: Project}) => {
     dispatch(updateAProject(newProject))
     dispatch(resetWorkingProject())
     toggleDialog()
+    toast.success("Project updated successfully")
   }
   const onCancel = ()=>{
     dispatch(resetWorkingProject())
@@ -48,8 +51,9 @@ const Options = (props: { project: Project}) => {
           <Button text='Cancel' onClick={onCancel}></Button>
         </div>
       </dialog>
-      <Button text='Edit' onClick={toggleDialog}/>
-      <Button text='Delete' onClick={onDelete}/>
+      
+        <Button text='Edit' onClick={toggleDialog}/>
+        <Button text='Delete' onClick={onDelete}/>
     </div>
   )
 }

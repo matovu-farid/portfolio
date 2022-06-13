@@ -4,7 +4,7 @@ import Options from "./Options";
 const ProjectComponent = (props:{project: Project}) => {
   return (
 
-    <div className="flex border-2 shadow-lg">
+    <div className="flex border-2 shadow-lg rounded-lg">
       <div >
 
         <div className="p-2">
@@ -16,7 +16,7 @@ const ProjectComponent = (props:{project: Project}) => {
           <p> {props.project.description}</p>
         </div>
       </div>
-      <div className="my-auto p-3 shadow-lg">
+      <div className="my-auto p-3">
         <Options project={props.project}></Options>
       </div>
     </div>

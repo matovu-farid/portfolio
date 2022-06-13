@@ -67,7 +67,7 @@ export const projectSlice = createSlice({
       deleteAProject.fulfilled,
       (state, action: PayloadAction<any>) => {
         state.all = state.all.filter(
-          (project) => project.id === action.payload.id
+          (project) => project.id !== action.payload.id
         );
       }
     );

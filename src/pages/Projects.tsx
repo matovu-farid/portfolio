@@ -1,6 +1,6 @@
 import React from 'react'
 import {  useAppSelector } from '../app/hooks'
-import ProjectComponent from './Project'
+import ProjectComponent from '../components/Project'
 
 const Projects = () => {
   const projects = useAppSelector(state=> state.projects.all)
