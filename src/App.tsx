@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import './App.css';
-import { fetchAllProjects } from './app/projects';
+import { fetchAllProjects } from './app/projects'
 import { useAppDispatch } from './app/hooks';
 import Projects from './components/Projects';
 
