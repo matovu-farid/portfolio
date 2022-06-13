@@ -1,6 +1,7 @@
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { deleteAProject, updateAProject } from '../app/projects';
+import { resetWorkingProject, setWorkingProject } from '../app/working_project';
 import { Project } from '../interfaces/project';
 import Button from './Button';
 import ProjectsForm from './ProjectsForm';
@@ -23,13 +24,20 @@ const Options = (props: { project: Project}) => {
 
     }
     dispatch(updateAProject(newProject))
+    dispatch(resetWorkingProject())
+    toggleDialog()
+  }
+  const onCancel = ()=>{
+    dispatch(resetWorkingProject())
     toggleDialog()
   }
   const [open,setOpen] = useState(false)
   const toggleDialog = ()=>{
     setOpen(!open)
   }
-  
+  useEffect(()=>{
+    if(open) dispatch(setWorkingProject(project))
+  },[open])
  
   return (
     <div className='flex gap-1'>
@@ -37,7 +45,7 @@ const Options = (props: { project: Project}) => {
         <ProjectsForm/>
         <div className='flex gap-2 justify-end'>
           <Button text='Update' onClick={onUpdate}></Button>
-          <Button text='Cancel' onClick={toggleDialog}></Button>
+          <Button text='Cancel' onClick={onCancel}></Button>
         </div>
       </dialog>
       <Button text='Edit' onClick={toggleDialog}/>

@@ -32,14 +32,14 @@ export const workingProjectSlice = createSlice({
     addImage: (state,action : PayloadAction<string>)=>{
       state.image = action.payload
     },
-    setProject: (state,action : PayloadAction<Project>)=>{
+    setWorkingProject: (state,action : PayloadAction<Project>)=>{
       const project = action.payload
       state.image = project.image
       state.description = project.description
       state.github = project.github
       state.name = project.name
     },
-    resetProject: (state,action : PayloadAction<string>)=>{
+    resetWorkingProject: (state)=>{
       state.image = ''
       state.name = ''
       state.description = ''
@@ -48,6 +48,6 @@ export const workingProjectSlice = createSlice({
   },
   
 });
-export const {addName , addDescription, addGithub, addImage, resetProject} = workingProjectSlice.actions
+export const {addName ,setWorkingProject, addDescription, addGithub, addImage, resetWorkingProject} = workingProjectSlice.actions
 
 export default workingProjectSlice.reducer;
