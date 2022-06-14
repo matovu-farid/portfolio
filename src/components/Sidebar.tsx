@@ -6,6 +6,7 @@ const Sidebar = () => {
   return (
     <div className='h-full bg-slate-900 text-white flex flex-col gap-2 pt-24 fixed text-start'>
       <SideLink to='/' text='Home'></SideLink>
+      <SideLink to='/' text='Favourites'></SideLink>
       <SideLink to='/addproject' text='Add Project'></SideLink>
     </div>
   )

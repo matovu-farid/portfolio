@@ -10,11 +10,14 @@ import Sidebar from './components/Sidebar';
 import { ToastContainer } from 'react-toastify';
 
   import 'react-toastify/dist/ReactToastify.css';
+import { fetchAllFavs } from './app/favs';
+import Favourites from './pages/Favorites';
 
 function App() {
   const dispatch = useAppDispatch();
   useEffect(()=>{
     dispatch(fetchAllProjects())
+    dispatch(fetchAllFavs())
     
   },[])
   return (
@@ -34,7 +37,7 @@ function App() {
             <Routes >
               <Route path='/' element={ <Projects />} />
               <Route path='/addproject' element={ <AddProjects />} />  
-            
+              <Route path='/favourites' element={ <Favourites />} />  
 
             </Routes>
 
