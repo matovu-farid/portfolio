@@ -49,17 +49,30 @@ export const deleteAProject = createAsyncThunk(
 export interface ProjectState {
   all: Project[];
   loading: boolean;
+  searched: Project[] | null;
+  searchText: string;
 }
 
 const initialState: ProjectState = {
   all: [],
-  loading: true
+  searched: null,
+  loading: true,
+  searchText: ''
 };
 
 export const projectSlice = createSlice({
   name: "project",
   initialState,
-  reducers: {},
+  reducers: {
+    search: (state,action)=>{
+      
+      state.loading = true
+      state.searchText = action.payload;
+      state.searched = state.all.filter(project =>
+         project.name.toLocaleLowerCase().includes(action.payload))
+         state.loading = false
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchAllProjects.fulfilled, (state, action) => {
       state.all = action.payload;
@@ -92,5 +105,5 @@ export const projectSlice = createSlice({
     );
   },
 });
-
+export const {search} = projectSlice.actions;
 export default projectSlice.reducer;
