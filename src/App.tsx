@@ -27,11 +27,7 @@ function App() {
         <div>
         <Sidebar/>
         </div>
-        <div className='w-28'>
-
-        </div>
-
-        <div className="flex-1 ">
+        <div className="flex-1 px-2">
           <ToastContainer />
           
 

@@ -1,13 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import SideLink from './SideLink'
+import { AiFillHome } from 'react-icons/ai';
+import { MdFavorite } from 'react-icons/md';
+import { GoDiffAdded } from 'react-icons/go';
+
 
 const Sidebar = () => {
+  
   return (
-    <div className='h-full bg-slate-900 text-white flex flex-col gap-2 pt-24 fixed text-start'>
-      <SideLink to='/' text='Home'></SideLink>
-      <SideLink to='/favorites' text='Favourites'></SideLink>
-      <SideLink to='/addproject' text='Add Project'></SideLink>
+    <div className='h-full min-h-screen bg-slate-900 text-white flex flex-col gap-2 pt-24 text-start'>
+      <SideLink icon={<AiFillHome/>} to='/' text='Home'></SideLink>
+      <SideLink icon={<MdFavorite/>} to='/favorites' text='Favourites'></SideLink>
+      <SideLink icon={<GoDiffAdded/>} to='/addproject' text='Add Project'></SideLink>
     </div>
   )
 }

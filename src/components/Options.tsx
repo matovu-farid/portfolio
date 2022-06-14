@@ -69,10 +69,15 @@ const Options = (props: { project: Project}) => {
       
         <Button text='Edit' onClick={toggleDialog}/>
         <Button text='Delete' onClick={onDelete}/>
+        <div className='flex-1 flex justify-end pr-4'>
+
         {
 
-        (!isAFavorite() && !isFavoritesPath())&&<button onClick={onLike}>👍</button>
+        (!isAFavorite() && !isFavoritesPath())&&<button 
+        className='hover:scale-150 transition-transform'
+         onClick={onLike}>👍</button>
         }
+        </div>
     </div>
   )
 }
