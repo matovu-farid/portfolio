@@ -25,7 +25,7 @@ const AddProjects = () => {
   }
   
   return (
-    <div className='mx-auto w-1/2'>
+    <div className='mx-auto w-1/2 animate-entrance'>
       <ProjectsForm />
       <div>
         <Button text='Add Project' onClick={onAdd} />
