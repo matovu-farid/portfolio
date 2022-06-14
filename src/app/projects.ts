@@ -49,13 +49,13 @@ export const deleteAProject = createAsyncThunk(
 export interface ProjectState {
   all: Project[];
   loading: boolean;
-  searched: Project[] | null;
+  searched: Project[];
   searchText: string;
 }
 
 const initialState: ProjectState = {
   all: [],
-  searched: null,
+  searched: [],
   loading: true,
   searchText: ''
 };
@@ -65,7 +65,7 @@ export const projectSlice = createSlice({
   initialState,
   reducers: {
     search: (state,action)=>{
-      
+
       state.loading = true
       state.searchText = action.payload;
       state.searched = state.all.filter(project =>
