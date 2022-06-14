@@ -1,12 +1,15 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppSelector } from '../app/hooks'
+import { Project } from '../interfaces/project'
 
 const ProjectDetails = () => {
   const {id} = useParams()
   const projects = useAppSelector(state=>state.projects.all)
   const favs = useAppSelector(state=>state.favorites.favs)
-  let project = projects.find(project => project.id === id) || favs.find(project => project.id === id)
+  const findProject= (projects: Project[])=> projects.find((project)  => project.id === id);
+  
+  let project = findProject(favs) || findProject(projects)
   
   return (
     <div className='text-gray-900 flex flex-col gap-4 justify-center min-h-screen'>
