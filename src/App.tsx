@@ -10,7 +10,6 @@ import Sidebar from './components/Sidebar';
 import { ToastContainer } from 'react-toastify';
 
   import 'react-toastify/dist/ReactToastify.css';
-import { ClipLoader } from 'react-spinners';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -24,7 +23,11 @@ function App() {
         <div>
         <Sidebar/>
         </div>
-        <div className="flex-1">
+        <div className='w-28'>
+
+        </div>
+
+        <div className="flex-1 ">
           <ToastContainer />
           
 

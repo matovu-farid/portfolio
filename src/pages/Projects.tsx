@@ -1,4 +1,4 @@
-import { SpinnerDotted } from 'spinners-react'
+import {  SpinnerRoundOutlined } from 'spinners-react'
 import {  useAppSelector } from '../app/hooks'
 import ProjectComponent from '../components/Project'
 
@@ -7,14 +7,14 @@ const Projects = () => {
   return (
    <div className='min-h-screen w-100 flex flex-col'>
 
-      <SpinnerDotted className='mx-auto my-auto h-100 ' enabled={loading}/>
+      <	SpinnerRoundOutlined className='mx-auto my-auto h-100 ' enabled={loading}/>
 
     
-      <div className='flex flex-col gap-2 mx-auto max-w-lg animate-entrance'>
+      <div className='grid grid-cols-3 gap-2 mx-auto animate-entrance'>
      
 
         {
-          projects.map(project =><ProjectComponent key={project.id} project={project}/>)
+          projects.map(project =><ProjectComponent  key={project.id} project={project}/>)
         }
       </div>
    </div>

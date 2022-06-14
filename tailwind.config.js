@@ -11,9 +11,17 @@ module.exports = {
           filter: 'blur(0.5rem)',
           tranform: 'scale(0.5)'
         },
+        '25%': {
+          filter: 'blur(0.35rem)',
+          tranform: 'scale(0.63)'
+        },
         '50%': {
           filter: 'blur(0.25rem)',
           tranform: 'scale(0.75)'
+        },
+        '75%': {
+          filter: 'blur(0.13rem)',
+          tranform: 'scale(0.87)'
         },
         '100%': {
           filter: 'blur(0)',
@@ -22,7 +30,7 @@ module.exports = {
       }
     },
     animation: {
-      'entrance' : 'entrance 4s ease-in 1'
+      'entrance' : 'entrance 0.5s 1 ease-in-out'
     }
   },
   plugins: [

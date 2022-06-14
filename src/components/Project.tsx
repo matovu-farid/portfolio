@@ -1,23 +1,27 @@
 import { Project } from "../interfaces/project";
 import Options from "./Options";
+interface Props {
+  project: Project;
+  className?: string;
+}
 
-const ProjectComponent = (props:{project: Project}) => {
+const ProjectComponent = ({project,className}:Props) => {
   return (
 
-    <div className="flex border-2 shadow-lg rounded-lg">
+    <div className={`flex border-2 shadow-lg rounded-lg ${className}`}>
       <div >
 
         <div className="p-2">
         
-          <h3 className="h-3 text-md text-gray-900 font-bold"> {props.project.name}</h3>
+          <h3 className="h-3 text-md text-gray-900 font-bold"> {project.name}</h3>
         </div>
         <div className="p-2">
           
-          <p> {props.project.description}</p>
+          <p> {project.description}</p>
         </div>
       </div>
       <div className="my-auto p-3">
-        <Options project={props.project}></Options>
+        <Options project={project}></Options>
       </div>
     </div>
   );
