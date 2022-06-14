@@ -1,5 +1,4 @@
-import React, { FormEvent, useEffect, useState } from 'react'
-import { toast } from 'react-toastify';
+import  { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { deleteAProject, updateAProject } from '../app/projects';
 import { resetWorkingProject, setWorkingProject } from '../app/working_project';
