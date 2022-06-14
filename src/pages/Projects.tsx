@@ -7,6 +7,7 @@ import ProjectComponent from '../components/Project'
 import SearchField from '../components/SearchField'
 
 const Projects = () => {
+  
   const {loading,all,searched:projects,searchText} = useAppSelector(state=> state.projects)
   const dispatch  = useAppDispatch()
   useEffect(()=>{

@@ -37,7 +37,7 @@ function App() {
             <Routes >
               <Route path='/' element={ <Projects />} />
               <Route path='/addproject' element={ <AddProjects />} />  
-              <Route path='/favourites' element={ <Favourites />} />  
+              <Route path='/favorites' element={ <Favourites />} />  
 
             </Routes>
 

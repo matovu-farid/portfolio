@@ -1,14 +1,18 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 
 interface Props {
   to: string;
   text: string;
 }
-
+interface LinkData {
+  isActive: boolean;
+}
+const common = 'px-3 transition-colors hover:bg-white hover:text-gray-900 '
 const SideLink = ({to,text}:Props) => {
   return (
-    <Link className='hover:invert bg-gray-900 px-3' to={to}>{text}</Link>
+    <NavLink  className={({isActive})=>common+(isActive?'bg-white text-gray-900 ':'text-white bg-gray-900')} 
+    to={to}>{text}</NavLink>
   )
 }
 

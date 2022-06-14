@@ -3,6 +3,7 @@ import { collection, deleteDoc, getDocs,getDoc, addDoc, doc, updateDoc } from "f
 import { Project } from "../interfaces/project";
 import { db } from "./db";
 
+
 const fetchAll = async (currentCollection:string)=>{
  
   const docs = await getDocs(collection(db, currentCollection))
@@ -24,7 +25,13 @@ const updateProject = async (project:any,currentCollection:string)=>{
 }
 const deleteProject = async (project: Project,currentCollection:string)=>{
    let docRef = doc(collection(db, currentCollection),project.id)
-  return deleteDoc(docRef)
+   try {
+    await deleteDoc(docRef)
+   } catch (error) {
+     console.log(error)
+   }
+
+
 
 }
 
