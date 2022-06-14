@@ -1,51 +1,16 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Project } from "../interfaces/project";
-import {
-  addProject,
-  deleteProject,
-  fetchAll,
-  updateProject,
-} from "./project_functions";
+
+
+import { projectAdd, projectDelete, projectFetch, projectUpdate } from "./thunks";
 
 // First, create the thunk
-export const fetchAllProjects = createAsyncThunk("projects/fetch", async () => {
-  const projects = await fetchAll();
-  return projects;
-});
-const toastMessege = (context:string)=>{
-   const lowercased= context.toLowerCase()
-  return {
-    pending: `${context} loading...⏳`,
-    error: `${context} failed 🤯`,
-    success: `Project ${lowercased} successful 😊`
+export const fetchAllProjects = projectFetch("projects");
+export const updateAProject = projectUpdate("projects");
+export const addAProject = projectAdd("projects");
+export const deleteAProject = projectDelete("projects");
 
-  }
-}
-export const updateAProject = createAsyncThunk(
-  "projects/update",
-  async (project: any) => {
-     await toast.promise(updateProject(project),toastMessege('Update'))
-   
-   
-    return project;
-  }
-);
-export const addAProject = createAsyncThunk(
-  "projects/add",
-  async (project: Project) => {
-    
-    await toast.promise(addProject(project),toastMessege('Add'));
-    return project;
-  }
-);
-export const deleteAProject = createAsyncThunk(
-  "projects/delete",
-  async (project: Project) => {
-    await toast.promise(deleteProject(project),toastMessege('Delete'));
-    return project;
-  }
-);
+
 export interface ProjectState {
   all: Project[];
   loading: boolean;
@@ -57,7 +22,8 @@ const initialState: ProjectState = {
   all: [],
   searched: null,
   loading: true,
-  searchText: ''
+  searchText: '',
+
 };
 
 export const projectSlice = createSlice({
@@ -80,12 +46,13 @@ export const projectSlice = createSlice({
       state.all = action.payload;
       state.loading = false;
     });
-    builder.addCase(fetchAllProjects.pending, (state, action) => {
+    builder.addCase(fetchAllProjects.pending, (state) => {
       state.loading = true;
     });
     builder.addCase(addAProject.fulfilled, (state, action) => {
       state.all.push(action.payload);
     });
+
     builder.addCase(
       updateAProject.fulfilled,
       (state, action: PayloadAction<any>) => {
@@ -97,6 +64,7 @@ export const projectSlice = createSlice({
         });
       }
     );
+
     builder.addCase(
       deleteAProject.fulfilled,
       (state, action: PayloadAction<any>) => {
@@ -105,6 +73,7 @@ export const projectSlice = createSlice({
         );
       }
     );
+
   },
 });
 export const {search,addSearchText} = projectSlice.actions;
