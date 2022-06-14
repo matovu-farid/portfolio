@@ -43,8 +43,8 @@ const Options = (props: { project: Project}) => {
   },[open])
  
   return (
-    <div className='flex gap-1'>
-      <dialog  className='shadow-2xl' open={open}>
+    <div className='flex gap-1 relative'>
+      <dialog  className='shadow-2xl z-10' open={open}>
         <ProjectsForm/>
         <div className='flex gap-2 justify-end'>
           <Button text='Update' onClick={onUpdate}></Button>

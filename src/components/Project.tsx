@@ -8,7 +8,7 @@ interface Props {
 const ProjectComponent = ({project,className}:Props) => {
   return (
 
-    <div className={`flex border-2 shadow-lg rounded-lg ${className}`}>
+    <div className={`flex flex-col border-2 shadow-lg rounded-lg ${className}`}>
       <div >
 
         <div className="p-2">
