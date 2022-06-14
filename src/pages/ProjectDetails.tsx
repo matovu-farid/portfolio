@@ -5,7 +5,9 @@ import { useAppSelector } from '../app/hooks'
 const ProjectDetails = () => {
   const {id} = useParams()
   const projects = useAppSelector(state=>state.projects.all)
-  const project = projects.find(project => project.id === id)
+  const favs = useAppSelector(state=>state.favorites.favs)
+  let project = projects.find(project => project.id === id) || favs.find(project => project.id === id)
+  
   return (
     <div className='text-gray-900 flex flex-col gap-4 justify-center min-h-screen'>
       {
