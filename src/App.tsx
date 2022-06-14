@@ -12,6 +12,7 @@ import { ToastContainer } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import { fetchAllFavs } from './app/favs';
 import Favourites from './pages/Favorites';
+import ProjectDetails from './pages/ProjectDetails';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -38,6 +39,8 @@ function App() {
               <Route path='/' element={ <Projects />} />
               <Route path='/addproject' element={ <AddProjects />} />  
               <Route path='/favorites' element={ <Favourites />} />  
+              <Route path='/projects/:id' element={ <ProjectDetails />} />  
+
 
             </Routes>
 

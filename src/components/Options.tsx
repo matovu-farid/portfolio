@@ -13,12 +13,14 @@ const Options = (props: { project: Project}) => {
   const dispatch = useAppDispatch()
   const {name, description,image,github} = useAppSelector(state=>state.workingProject)
   const {pathname} = useLocation()
+  const favs = useAppSelector(state=>state.favorites.favs)
+  const isAFavorite = ()=> favs.some(favorite=>favorite.name === project.name)
+  const isFavoritesPath =()=> pathname.includes('fav')
+ 
   const onDelete = ()=>{
-    (pathname.includes('fav'))?
-    dispatch(deleteAFav(project))
-    :
+    (isFavoritesPath())?
+    dispatch(deleteAFav(project)) :
     dispatch(deleteAProject(project))
-    dispatch(updateAProject({...project,favorite:false}))
 
   }
   const onUpdate = ()=>{
@@ -53,6 +55,7 @@ const Options = (props: { project: Project}) => {
 
     navigate('/favorites')
   }
+
  
   return (
     <div className='flex gap-1 relative'>
@@ -68,7 +71,7 @@ const Options = (props: { project: Project}) => {
         <Button text='Delete' onClick={onDelete}/>
         {
 
-        ((!project.favorite)|| ( project.favorite === undefined))&&<button onClick={onLike}>👍</button>
+        (!isAFavorite() && !isFavoritesPath())&&<button onClick={onLike}>👍</button>
         }
     </div>
   )
