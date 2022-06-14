@@ -1,14 +1,17 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {  SpinnerRoundOutlined } from 'spinners-react'
-import {  useAppSelector } from '../app/hooks'
+import {  useAppDispatch, useAppSelector } from '../app/hooks'
 import { search } from '../app/projects'
 import ProjectComponent from '../components/Project'
 import SearchField from '../components/SearchField'
 
 const Projects = () => {
-  const {loading,all,searched:projects} = useAppSelector(state=> state.projects)
-  
+  const {loading,all,searched:projects,searchText} = useAppSelector(state=> state.projects)
+  const dispatch  = useAppDispatch()
+  useEffect(()=>{
+    dispatch(search(searchText))
+  },[all, searchText])
 
 
   return (
@@ -21,7 +24,7 @@ const Projects = () => {
      
 
         {
-          (projects || all).map(project =><ProjectComponent  key={project.id} project={project}/>)
+          ((projects) || all).map(project =><ProjectComponent  key={project.id} project={project}/>)
         }
       </div>
    </div>

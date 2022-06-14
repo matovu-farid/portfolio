@@ -67,10 +67,12 @@ export const projectSlice = createSlice({
     search: (state,action)=>{
 
       state.loading = true
-      state.searchText = action.payload;
       state.searched = state.all.filter(project =>
          project.name.toLocaleLowerCase().includes(action.payload))
          state.loading = false
+    },
+    addSearchText: (state,action)=>{
+      state.searchText = action.payload
     }
   },
   extraReducers: (builder) => {
@@ -105,5 +107,5 @@ export const projectSlice = createSlice({
     );
   },
 });
-export const {search} = projectSlice.actions;
+export const {search,addSearchText} = projectSlice.actions;
 export default projectSlice.reducer;

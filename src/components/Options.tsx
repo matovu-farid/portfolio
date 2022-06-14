@@ -14,7 +14,6 @@ const Options = (props: { project: Project}) => {
 
   const onDelete = ()=>{
     dispatch(deleteAProject(project))
-    toast.success("Project deleted successfully")
   }
   const onUpdate = ()=>{
     const newProject = {
@@ -28,7 +27,6 @@ const Options = (props: { project: Project}) => {
     dispatch(updateAProject(newProject))
     dispatch(resetWorkingProject())
     toggleDialog()
-    // toast.success("Project updated successfully")
   }
   const onCancel = ()=>{
     dispatch(resetWorkingProject())

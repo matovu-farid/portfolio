@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { search } from '../app/projects'
+import { addSearchText, search } from '../app/projects'
 
 interface Props  {
  disabled?: boolean
@@ -10,7 +10,7 @@ const SearchField = ({disabled}:Props) => {
   const onChange = (value: string) => {
     timeoutId && clearTimeout(timeoutId)
     timeoutId= setTimeout(()=>{
-      dispatch(search(value))
+      dispatch(addSearchText(value))
     },1000)
    
   }
