@@ -49,13 +49,13 @@ export const deleteAProject = createAsyncThunk(
 export interface ProjectState {
   all: Project[];
   loading: boolean;
-  searched: Project[];
+  searched: Project[] | null;
   searchText: string;
 }
 
 const initialState: ProjectState = {
   all: [],
-  searched: [],
+  searched: null,
   loading: true,
   searchText: ''
 };

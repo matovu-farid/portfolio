@@ -8,11 +8,8 @@ import SearchField from '../components/SearchField'
 
 const Projects = () => {
   const {loading,all,searched:projects} = useAppSelector(state=> state.projects)
-  const dispatch = useDispatch()
-  const [searchText, setSearchText] = useState('')
-  useEffect(()=>{
-    (all.length>0)&& dispatch(search(searchText))
-  },[searchText]) 
+  
+
 
   return (
    <div className='min-h-screen w-100 flex flex-col'>
