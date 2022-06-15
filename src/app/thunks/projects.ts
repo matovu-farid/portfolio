@@ -1,21 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { Project } from "../interfaces/project";
+import { Project } from "../../interfaces/project";
 import {
   createProject,
   deleteProject,
   readProjects,
   updateProject,
-} from "./firebase/project";
+} from "../firebase/project";
+import { toastMessege } from "../helpers/toast_messege";
 
-const toastMessege = (context: string) => {
-  const lowercased = context.toLowerCase();
-  return {
-    pending: `${context} loading...⏳`,
-    error: `${context} failed 🤯`,
-    success: `Project ${lowercased} successful 😊`,
-  };
-};
+
 
 export const projectFetch = (currentCollection: string) =>
   createAsyncThunk(`${currentCollection}/fetch`, async () => {

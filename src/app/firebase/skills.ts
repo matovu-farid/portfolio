@@ -1,8 +1,9 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore"
 import { Skill } from "../../interfaces/skill"
 import { db } from "../db"
+import { SKILLSCOLLECTION } from "../helpers/constants"
 
-const SKILLSCOLLECTION = 'skills';
+
 const readSkills = async ()=>{
  
   const docs = await getDocs(collection(db, SKILLSCOLLECTION))
