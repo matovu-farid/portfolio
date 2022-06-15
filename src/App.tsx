@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect } from "react";
 
 import "./App.css";
-import { fetchAllProjects } from "./app/projects";
+import { fetchAllProjects } from "./app/features/projects";
 import { useAppDispatch } from "./app/hooks";
 import ProjectsPage from "./pages/ProjectsPage";
 import { Routes, Route } from "react-router-dom";
@@ -10,7 +10,7 @@ import Sidebar from "./components/Sidebar";
 import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-import { fetchAllFavs } from "./app/favs";
+import { fetchAllFavs } from "./app/features/favs";
 import Favourites from "./pages/Favorites";
 import ProjectDetails from "./pages/ProjectDetails";
 

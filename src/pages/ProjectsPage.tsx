@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { addSearchText, search } from "../app/projects";
+import { addSearchText, search } from "../app/features/projects";
 import Projects from "../components/Projects";
 
 const ProjectsPage = () => {

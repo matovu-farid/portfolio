@@ -2,7 +2,7 @@ import React from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
-import { addAProject } from '../app/projects'
+import { addAProject } from '../app/features/projects'
 import Button from '../components/Button'
 import ProjectsForm from '../components/ProjectsForm'
 

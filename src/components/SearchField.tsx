@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { addSearchText, search } from '../app/projects'
+import { addSearchText, search } from '../app/features/projects'
 
 interface Props  {
  disabled?: boolean,

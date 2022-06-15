@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { addFavSearchText } from '../app/favs'
+import { addFavSearchText } from '../app/features/favs'
 import {  useAppDispatch, useAppSelector } from '../app/hooks'
-import { search } from '../app/projects'
+import { search } from '../app/features/projects'
 import Projects from '../components/Projects'
 
 const Favourites = () => {
