@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { addASkill } from "../app/features/skills";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import Button from "../components/Button";
+import SkillsForm from "../components/SkillsForm";
 import { SKILLSROUTE } from "../helpers/constants";
 
 const AddSkill = () => {
