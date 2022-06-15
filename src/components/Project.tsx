@@ -16,7 +16,7 @@ const ProjectComponent = ({project,className}:Props) => {
 
           <div className="p-2">
           
-            <h3 className="h-3 text-md text-gray-900 font-bold"> {project.name}</h3>
+            <h3 className="h-3 text-2xl text-blue-800 font-bold"> {project.name}</h3>
           </div>
           <div className="p-2">
             
