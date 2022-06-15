@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { addAProject } from '../app/features/projects'
 import Button from '../components/Button'
 import ProjectsForm from '../components/ProjectsForm'
+import { HOMEROUTE } from '../helpers/constants'
 
 const AddProjects = () => {
   const dispatch = useAppDispatch()
@@ -20,8 +21,7 @@ const AddProjects = () => {
 
     }
     dispatch(addAProject(newProject))
-    toast.success("Project added successfully")
-    navigate('/')
+    navigate(HOMEROUTE)
   }
   
   return (
