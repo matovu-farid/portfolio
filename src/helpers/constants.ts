@@ -1,5 +1,5 @@
 export const HOMEROUTE = "/" 
-export const ADDPROJECTSROUTE = "/addproject" 
+export const ADDPROJECTROUTE = "/addproject" 
 export const FAVOURITESROUTE = "/favorites" 
 export const SKILLSROUTE = "/skills" 
 export const ADDSKILLROUTE = "/addskill"

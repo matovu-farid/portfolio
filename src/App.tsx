@@ -15,6 +15,7 @@ import Favourites from "./pages/Favorites";
 import ProjectDetails from "./pages/ProjectDetails";
 import SkillsPage from "./pages/SkillsPage";
 import AddSkill from "./pages/AddSkill";
+import {  ADDPROJECTROUTE, ADDSKILLROUTE, FAVOURITESROUTE, HOMEROUTE, SHOWPROJECTROUTE, SKILLSROUTE } from "./helpers/constants";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -32,12 +33,12 @@ function App() {
           <ToastContainer />
 
           <Routes>
-            <Route path="/" element={<ProjectsPage />} />
-            <Route path="/addproject" element={<AddProjects />} />
-            <Route path="/favorites" element={<Favourites />} />
-            <Route path="/skills" element={<SkillsPage />} />
-            <Route path="/addskill" element={<AddSkill />} />
-            <Route path="/projects/:id" element={<ProjectDetails />} />
+            <Route path={HOMEROUTE} element={<ProjectsPage />} />
+            <Route path={ADDPROJECTROUTE} element={<AddProjects />} />
+            <Route path={FAVOURITESROUTE} element={<Favourites />} />
+            <Route path={SKILLSROUTE} element={<SkillsPage />} />
+            <Route path={ADDSKILLROUTE} element={<AddSkill />} />
+            <Route path={SHOWPROJECTROUTE} element={<ProjectDetails />} />
           </Routes>
         </div>
       </div>
