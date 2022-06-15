@@ -17,7 +17,7 @@ const initialState: WorkingProjectState = {
 };
 
 export const workingProjectSlice = createSlice({
-  name: "project",
+  name: "working project",
   initialState,
   reducers: {
     addName: (state,action : PayloadAction<string>)=>{

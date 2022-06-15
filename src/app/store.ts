@@ -2,12 +2,15 @@ import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import projectReducer from './features/projects';
 import favouritesReducer from './features/favs';
 import workingProjectReducer from './features/working_project';
+import workingSkillReducer from './features/working_skill';
+
 import skillsReducer from './features/skills';
 
 export const store = configureStore({
   reducer: {
     projects: projectReducer,
     workingProject: workingProjectReducer,
+    workingSkill: workingSkillReducer,
     favorites:  favouritesReducer,
     skills: skillsReducer,
   },
