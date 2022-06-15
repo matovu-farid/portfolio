@@ -14,15 +14,13 @@ export const deleteASkill = skillDelete();
 export interface SkillState {
   all: Skill[];
   loading: boolean;
-  searched: Skill[] | null;
-  searchText: string;
+
 }
 
 const initialState: SkillState = {
   all: [],
-  searched: null,
   loading: true,
-  searchText: '',
+
 
 };
 
