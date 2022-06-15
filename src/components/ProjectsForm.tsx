@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useAppSelector } from '../app/hooks'
-import { addDescription, addGithub, addImage, addName, WorkingProjectState } from '../app/working_project'
+import { addDescription, addGithub, addImage, addName, WorkingProjectState } from '../app/features/working_project'
 import { Project } from '../interfaces/project'
 
 const ProjectsForm = () => {

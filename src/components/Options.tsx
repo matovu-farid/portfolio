@@ -3,7 +3,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { addAFav, deleteAFav } from '../app/features/favs';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { deleteAProject, updateAProject } from '../app/features/projects';
-import { resetWorkingProject, setWorkingProject } from '../app/working_project';
+import { resetWorkingProject, setWorkingProject } from '../app/features/working_project';
 import { Project } from '../interfaces/project';
 import Button from './Button';
 import ProjectsForm from './ProjectsForm';

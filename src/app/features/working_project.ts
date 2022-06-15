@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Project } from "../interfaces/project";
+import { Project } from "../../interfaces/project";
 
 
 export interface WorkingProjectState {

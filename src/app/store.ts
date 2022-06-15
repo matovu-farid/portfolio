@@ -1,7 +1,7 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import projectReducer from './features/projects';
 import favouritesReducer from './features/favs';
-import workingProjectReducer from './working_project';
+import workingProjectReducer from './features/working_project';
 import skillsReducer from './features/skills';
 
 export const store = configureStore({
