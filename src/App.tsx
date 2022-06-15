@@ -16,12 +16,14 @@ import ProjectDetails from "./pages/ProjectDetails";
 import SkillsPage from "./pages/SkillsPage";
 import AddSkill from "./pages/AddSkill";
 import {  ADDPROJECTROUTE, ADDSKILLROUTE, FAVOURITESROUTE, HOMEROUTE, SHOWPROJECTROUTE, SKILLSROUTE } from "./helpers/constants";
+import { fetchAllSkills } from "./app/features/skills";
 
 function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchAllProjects());
     dispatch(fetchAllFavs());
+    dispatch(fetchAllSkills());
   }, []);
   return (
     <div className="App">

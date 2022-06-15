@@ -16,7 +16,11 @@ const SkillComponent = ({skill,className}:Props) => {
 
           <div className="p-2">
           
-            <h3 className="h-3 text-md text-gray-900 font-bold"> {skill.name}</h3>
+            <h3 className="h-3 text-2xl text-gray-900 font-bold"> {skill.name}</h3>
+          </div>
+          <div className="p-2">
+          
+            <img className=" object-contain h-96" src={skill.image} alt={skill.name} />
           </div>
           <div className="p-2">
             
