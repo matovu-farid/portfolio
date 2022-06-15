@@ -1,6 +1,5 @@
 import  { useEffect, useState } from 'react'
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { addAFav, deleteAFav } from '../app/features/favs';
+import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { deleteASkill, updateASkill } from '../app/features/skills';
 import { resetWorkingSkill, setWorkingSkill } from '../app/features/working_skill';

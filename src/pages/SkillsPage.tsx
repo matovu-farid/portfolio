@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
+import Skills from "../components/Skills";
 
 const SkillsPage = () => {
   const {
@@ -11,7 +11,7 @@ const SkillsPage = () => {
 
 
   return (
-    <Projects all={all} searched={searched} loading={loading} addSearchText={addSearchText} />
+    <Skills all={all} loading={loading} />
   );
 };
 
