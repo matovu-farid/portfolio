@@ -1,34 +1,33 @@
 import { NavLink } from "react-router-dom";
-import { Project } from "../interfaces/project";
-import Options from "./Options";
+import { Skill } from "../interfaces/skill";
+import SkillsOptions from "./SkillsOptions";
 interface Props {
-  project: Project;
+  skill: Skill;
   className?: string;
 }
 
-const ProjectComponent = ({project,className}:Props) => {
+const SkillComponent = ({skill,className}:Props) => {
   return (
 
     <div className={`flex flex-col border-2 shadow-lg rounded-lg ${className}`}>
-       <NavLink to={`/projects/${project.id}`}>
+       <NavLink to={`/skills/${skill.id}`}>
 
         <div >
 
           <div className="p-2">
           
-            <h3 className="h-3 text-md text-gray-900 font-bold"> {project.name}</h3>
+            <h3 className="h-3 text-md text-gray-900 font-bold"> {skill.name}</h3>
           </div>
           <div className="p-2">
             
-            <p> {project.description}</p>
           </div>
         </div>
        </NavLink>
       <div className="my-auto p-3">
-        <Options project={project}></Options>
+        <SkillsOptions skill={skill}></SkillsOptions>
       </div>
     </div>
   );
 }
 
-export default ProjectComponent
+export default SkillComponent
