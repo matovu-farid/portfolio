@@ -9,7 +9,7 @@ import { GoDiffAdded } from 'react-icons/go';
 const Sidebar = () => {
   
   return (
-    <div className='h-full min-h-screen bg-slate-900 text-white flex flex-col gap-2 pt-24 text-start'>
+    <div className='h-full min-h-screen bg-slate-900 text-white flex flex-col pt-24 text-start'>
       <SideLink icon={<AiFillHome/>} to='/' text='Home'></SideLink>
       <SideLink icon={<MdFavorite/>} to='/favorites' text='Favourites'></SideLink>
       <SideLink icon={<GoDiffAdded/>} to='/addproject' text='Add Project'></SideLink>
