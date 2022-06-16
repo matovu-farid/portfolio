@@ -1,2 +1,2 @@
-export const LANGUAGECOLLECTION = 'languages';
-export const SKILLSCOLLECTION = 'skills';
+export const LANGUAGESCOLLECTION = "languages";
+export const SKILLSCOLLECTION = "skills";
