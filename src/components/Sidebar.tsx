@@ -4,6 +4,8 @@ import SideLink from './SideLink'
 import { AiFillHome } from 'react-icons/ai';
 import { MdFavorite } from 'react-icons/md';
 import { ImBooks } from 'react-icons/im';
+import { BsSpeakerFill } from 'react-icons/bs';
+import { MdAddCircle } from 'react-icons/md';
 import { RiHealthBookFill } from 'react-icons/ri';
 import { GoDiffAdded } from 'react-icons/go';
 import { ADDLANGUAGEROUTE, ADDPROJECTROUTE, ADDSKILLROUTE, FAVOURITESROUTE, HOMEROUTE, LANGUAGESROUTE, SKILLSROUTE } from '../helpers/constants';
@@ -18,8 +20,8 @@ const Sidebar = () => {
       <SideLink icon={<GoDiffAdded/>} to={ADDPROJECTROUTE} text='Add Project'></SideLink>
       <SideLink icon={<ImBooks/>} to={SKILLSROUTE} text='Skills'></SideLink>
       <SideLink icon={<RiHealthBookFill/>} to={ADDSKILLROUTE} text='Add Skills'></SideLink>
-      <SideLink icon={<ImBooks/>} to={LANGUAGESROUTE} text='Languages'></SideLink>
-      <SideLink icon={<RiHealthBookFill/>} to={ADDLANGUAGEROUTE} text='Add Languages'></SideLink>
+      <SideLink icon={<BsSpeakerFill/>} to={LANGUAGESROUTE} text='Languages'></SideLink>
+      <SideLink icon={<MdAddCircle/>} to={ADDLANGUAGEROUTE} text='Add Languages'></SideLink>
 
     </div>
   )
