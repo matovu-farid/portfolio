@@ -15,9 +15,11 @@ import Favourites from "./pages/Favorites";
 import ProjectDetails from "./pages/ProjectDetails";
 import SkillsPage from "./pages/SkillsPage";
 import AddSkill from "./pages/AddSkill";
-import {  ADDPROJECTROUTE, ADDSKILLROUTE, FAVOURITESROUTE, HOMEROUTE, SHOWPROJECTROUTE, SKILLSROUTE } from "./helpers/constants";
+import {  ADDLANGUAGEROUTE, ADDPROJECTROUTE, ADDSKILLROUTE, FAVOURITESROUTE, HOMEROUTE, LANGUAGESROUTE, SHOWPROJECTROUTE, SKILLSROUTE } from "./helpers/constants";
 import { fetchAllSkills } from "./app/features/skills";
 import { fetchAllLanguages } from "./app/features/languages";
+import LanguagesPage from "./pages/LanguagesPage";
+import AddLanguage from "./pages/AddLanguage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -42,6 +44,8 @@ function App() {
             <Route path={FAVOURITESROUTE} element={<Favourites />} />
             <Route path={SKILLSROUTE} element={<SkillsPage />} />
             <Route path={ADDSKILLROUTE} element={<AddSkill />} />
+            <Route path={LANGUAGESROUTE} element={<LanguagesPage />} />
+            <Route path={ADDLANGUAGEROUTE} element={<AddLanguage />} />
             <Route path={SHOWPROJECTROUTE} element={<ProjectDetails />} />
           </Routes>
         </div>
