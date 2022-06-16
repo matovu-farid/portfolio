@@ -6,7 +6,7 @@ import { MdFavorite } from 'react-icons/md';
 import { ImBooks } from 'react-icons/im';
 import { RiHealthBookFill } from 'react-icons/ri';
 import { GoDiffAdded } from 'react-icons/go';
-import { ADDPROJECTROUTE, ADDSKILLROUTE, FAVOURITESROUTE, HOMEROUTE, SKILLSROUTE } from '../helpers/constants';
+import { ADDLANGUAGEROUTE, ADDPROJECTROUTE, ADDSKILLROUTE, FAVOURITESROUTE, HOMEROUTE, LANGUAGESROUTE, SKILLSROUTE } from '../helpers/constants';
 
 
 const Sidebar = () => {
@@ -18,6 +18,9 @@ const Sidebar = () => {
       <SideLink icon={<GoDiffAdded/>} to={ADDPROJECTROUTE} text='Add Project'></SideLink>
       <SideLink icon={<ImBooks/>} to={SKILLSROUTE} text='Skills'></SideLink>
       <SideLink icon={<RiHealthBookFill/>} to={ADDSKILLROUTE} text='Add Skills'></SideLink>
+      <SideLink icon={<ImBooks/>} to={LANGUAGESROUTE} text='Languages'></SideLink>
+      <SideLink icon={<RiHealthBookFill/>} to={ADDLANGUAGEROUTE} text='Add Languages'></SideLink>
+
     </div>
   )
 }
