@@ -17,6 +17,7 @@ import SkillsPage from "./pages/SkillsPage";
 import AddSkill from "./pages/AddSkill";
 import {  ADDPROJECTROUTE, ADDSKILLROUTE, FAVOURITESROUTE, HOMEROUTE, SHOWPROJECTROUTE, SKILLSROUTE } from "./helpers/constants";
 import { fetchAllSkills } from "./app/features/skills";
+import { fetchAllLanguages } from "./app/features/languages";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -24,6 +25,7 @@ function App() {
     dispatch(fetchAllProjects());
     dispatch(fetchAllFavs());
     dispatch(fetchAllSkills());
+    dispatch(fetchAllLanguages());
   }, []);
   return (
     <div className="App">

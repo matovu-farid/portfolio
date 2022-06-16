@@ -5,6 +5,8 @@ import workingProjectReducer from './features/working_project';
 import workingSkillReducer from './features/working_skill';
 
 import skillsReducer from './features/skills';
+import languagesReducer from './features/languages';
+
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +15,7 @@ export const store = configureStore({
     workingSkill: workingSkillReducer,
     favorites:  favouritesReducer,
     skills: skillsReducer,
+    languages: languagesReducer,
   },
 });
 
