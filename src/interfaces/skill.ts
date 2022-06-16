@@ -1,5 +1,3 @@
-export interface Skill {
-  id: string;
-  name: string;
-  image: string;
-}
+import { Attribute } from "./attribute";
+
+export interface Skill extends Attribute {}

@@ -1,37 +1,38 @@
 import { NavLink } from "react-router-dom";
-import { Skill } from "../interfaces/skill";
+import { Attribute } from "../interfaces/attribute";
+
 import SkillsOptions from "./SkillsOptions";
 interface Props {
-  skill: Skill;
+  attribute: Attribute;
   className?: string;
 }
 
-const SkillComponent = ({skill,className}:Props) => {
+const Attribute = ({ attribute, className }: Props) => {
   return (
-
     <div className={`flex flex-col border-2 shadow-lg rounded-lg ${className}`}>
-       <NavLink to={`/skills/${skill.id}`}>
-
-        <div >
-
+      <NavLink to={`/attributes/${attribute.id}`}>
+        <div>
           <div className="p-2">
-          
-            <h3 className="h-3 text-2xl text-gray-900 font-bold"> {skill.name}</h3>
+            <h3 className="h-3 text-2xl text-gray-900 font-bold">
+              {" "}
+              {attribute.name}
+            </h3>
           </div>
           <div className="p-2">
-          
-            <img className=" object-contain h-96" src={skill.image} alt={skill.name} />
+            <img
+              className=" object-contain h-96"
+              src={attribute.image}
+              alt={attribute.name}
+            />
           </div>
-          <div className="p-2">
-            
-          </div>
+          <div className="p-2"></div>
         </div>
-       </NavLink>
+      </NavLink>
       <div className="my-auto p-3">
-        <SkillsOptions skill={skill}></SkillsOptions>
+        <SkillsOptions attribute={attribute}></SkillsOptions>
       </div>
     </div>
   );
-}
+};
 
-export default SkillComponent
+export default Attribute;

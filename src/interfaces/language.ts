@@ -1,5 +1,3 @@
-export interface Language {
-  id: string;
-  name: string;
-  image: string;
-}
+import { Attribute } from "./attribute";
+
+export interface Language extends Attribute {}

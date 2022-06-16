@@ -7,15 +7,16 @@ import { Skill } from '../interfaces/skill';
 import Button from './Button';
 import SkillsForm from './SkillsForm';
 
+interface Props {
+  skill: Skill;
+}
+
 const SkillsOptions = (props: { skill: Skill}) => {
   const skill = props.skill;
   const dispatch = useAppDispatch()
   const {name,image} = useAppSelector(state=>state.workingSkill)
-  const {pathname} = useLocation()
-  const favs = useAppSelector(state=>state.favorites.favs)
-  const isAFavorite = ()=> favs.some(favorite=>favorite.name === skill.name)
-  const isFavoritesPath =()=> pathname.includes('fav')
- 
+
+  
   const onDelete = ()=>{
     
     dispatch(deleteASkill(skill))
