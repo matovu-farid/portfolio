@@ -1,40 +1,40 @@
 import  { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { deleteALanguage, updateALanguage } from '../app/features/languages';
-import { resetWorkingLanguage, setWorkingLanguage } from '../app/features/working_language';
-import { Language } from '../interfaces/language';
-import Button from './Button';
-import LanguagesForm from './LanguagesForm';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { deleteASkill, updateASkill } from '../../app/features/skills';
+import { resetWorkingSkill, setWorkingSkill } from '../../app/features/working_skill';
+import { Skill } from '../../interfaces/skill';
+import Button from '.././Button';
+import SkillsForm from './SkillsForm';
 
 interface Props {
-  language: Language;
+  skill: Skill;
 }
 
-const LanguagesOptions = ( { language}:Props) => {
+const SkillsOptions = ( { skill}:Props) => {
 
   const dispatch = useAppDispatch()
-  const {name,image} = useAppSelector(state=>state.workingLanguage)
+  const {name,image} = useAppSelector(state=>state.workingSkill)
 
   
   const onDelete = ()=>{
     
-    dispatch(deleteALanguage(language))
+    dispatch(deleteASkill(skill))
 
   }
   const onUpdate = ()=>{
-    const newLanguage = {
-      id: language.id,
+    const newSkill = {
+      id: skill.id,
       name: name,
       image: image,
 
     }
-    dispatch(updateALanguage(newLanguage))
-    dispatch(resetWorkingLanguage())
+    dispatch(updateASkill(newSkill))
+    dispatch(resetWorkingSkill())
     toggleDialog()
   }
   const onCancel = ()=>{
-    dispatch(resetWorkingLanguage())
+    dispatch(resetWorkingSkill())
     toggleDialog()
   }
   const [open,setOpen] = useState(false)
@@ -42,7 +42,7 @@ const LanguagesOptions = ( { language}:Props) => {
     setOpen(!open)
   }
   useEffect(()=>{
-    if(open) dispatch(setWorkingLanguage(language))
+    if(open) dispatch(setWorkingSkill(skill))
   },[open])
 
 
@@ -50,7 +50,7 @@ const LanguagesOptions = ( { language}:Props) => {
   return (
     <div className='flex gap-1 relative'>
       <dialog  className='shadow-2xl z-10' open={open}>
-        <LanguagesForm/>
+        <SkillsForm/>
         <div className='flex gap-2 justify-end'>
           <Button text='Update' onClick={onUpdate}></Button>
           <Button text='Cancel' onClick={onCancel}></Button>
@@ -66,4 +66,4 @@ const LanguagesOptions = ( { language}:Props) => {
   )
 }
 
-export default LanguagesOptions
+export default SkillsOptions
