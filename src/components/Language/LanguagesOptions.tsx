@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { deleteALanguage, updateALanguage } from '../../app/features/languages';
 import { resetWorkingLanguage, setWorkingLanguage } from '../../app/features/working_language';
 import { Language } from '../../interfaces/language';
-import Button from '.././Button';
+import Button from '../Button';
 import LanguagesForm from './LanguagesForm';
 
 interface Props {

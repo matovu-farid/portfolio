@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import Skills from "../components/Skills";
+import Skills from "../components/Skill/Skills";
 
 const SkillsPage = () => {
   const {
