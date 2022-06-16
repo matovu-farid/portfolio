@@ -1,35 +1,35 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { addASkill } from "../app/features/skills";
+import { addALanguage } from "../app/features/languages";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import Button from "../components/Button";
-import SkillsForm from "../components/Skill/SkillsForm";
+import LanguagesForm from "../components/Language/LanguagesForm";
 import { SKILLSROUTE } from "../helpers/constants";
 
-const AddSkill = () => {
+const AddLanguage = () => {
   const dispatch = useAppDispatch()
-  const {name,image}  = useAppSelector(state=>state.workingSkill)
+  const {name,image}  = useAppSelector(state=>state.workingLanguage)
   const navigate = useNavigate()
   const onAdd = ()=>{
-    const newSkill = {
+    const newLanguage = {
       id: '',
       name: name,
       image: image,
 
     }
-    dispatch(addASkill(newSkill))
+    dispatch(addALanguage(newLanguage))
     navigate(SKILLSROUTE)
   }
   
   return (
     <div className='mx-auto w-1/2 animate-entrance'>
-      <SkillsForm />
+      <LanguagesForm />
       <div>
-        <Button text='Add Skill' onClick={onAdd} />
+        <Button text='Add Language' onClick={onAdd} />
       </div>
 
     </div>
   )
 };
 
-export default AddSkill;
+export default AddLanguage;
