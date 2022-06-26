@@ -4,16 +4,14 @@ import { Resume } from "../../interfaces/resume";
 
 export interface WorkingResumeState {
   name: string;
-  description: string;
-  image: string;
-  github: string;
+  title: string;
+  intro: string;
 }
 
 const initialState: WorkingResumeState = {
   name : '',
-  description: '',
-  image: '',
-  github: '',
+  title: '',
+  intro: '',
 };
 
 export const workingResumeSlice = createSlice({
@@ -23,31 +21,27 @@ export const workingResumeSlice = createSlice({
     addName: (state,action : PayloadAction<string>)=>{
       state.name = action.payload
     },
-    addDescription: (state,action : PayloadAction<string>)=>{
-      state.description = action.payload
+    addTitle: (state,action : PayloadAction<string>)=>{
+      state.title = action.payload
     },
-    addGithub: (state,action : PayloadAction<string>)=>{
-      state.github = action.payload
-    },
-    addImage: (state,action : PayloadAction<string>)=>{
-      state.image = action.payload
+
+    addIntro: (state,action : PayloadAction<string>)=>{
+      state.intro = action.payload
     },
     setWorkingResume: (state,action : PayloadAction<Resume>)=>{
       const resume = action.payload
-      state.image = resume.image
-      state.description = resume.description
-      state.github = resume.github
+      state.intro = resume.intro
+      state.title = resume.title
       state.name = resume.name
     },
     resetWorkingResume: (state)=>{
-      state.image = ''
+      state.intro = ''
       state.name = ''
-      state.description = ''
-      state.github = ''
+      state.title = ''
     },
   },
   
 });
-export const {addName ,setWorkingResume, addDescription, addGithub, addImage, resetWorkingResume} = workingResumeSlice.actions
+export const {addName ,setWorkingResume, addTitle, addIntro, resetWorkingResume} = workingResumeSlice.actions
 
 export default workingResumeSlice.reducer;

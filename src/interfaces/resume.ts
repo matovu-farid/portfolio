@@ -1,31 +1,31 @@
 
 export interface History {
-  job: String,
-  date: String,
-  points: String[],
-  location: String
+  job: string,
+  date: string,
+  points: string[],
+  location: string
 }
 export interface Education {
-  institution: String,
-  date: String,
-  title: String,
+  institution: string,
+  date: string,
+  title: string,
 }
 
 export interface RSkill {
-  frontEnd:String[],
-  backEnd:String[],
-  tools: String[]
+  frontEnd:string[],
+  backEnd:string[],
+  tools: string[]
 
 }
 export interface RProject {
-  title: String,
-  points: String[]
+  title: string,
+  points: string[]
 }
 export interface Resume {
   id: string,
   name: string,
-  title: String,
-  intro: String,
+  title: string,
+  intro: string,
   links: string[],
   history: History[],
   skills: RSkill[],
