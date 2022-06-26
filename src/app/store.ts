@@ -18,6 +18,7 @@ export const store = configureStore({
     favorites:  favouritesReducer,
     skills: skillsReducer,
     languages: languagesReducer,
+    resume: resumeRe
   },
 });
 
