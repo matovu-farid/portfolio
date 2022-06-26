@@ -7,8 +7,8 @@ import {
   doc,
   updateDoc,
 } from "firebase/firestore";
-
 import { Resume } from "../../interfaces/resume";
+
 import { db } from "../db";
 
 const readResumes = async (currentCollection: string) => {

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Resume } from "../../interfaces/resume";
 
 
-import { resumeAdd, resumeDelete, resumeFetch, resumeUpdate } from "../thunks/resumes";
+import { resumeAdd, resumeDelete, resumeFetch, resumeUpdate } from "../thunks/resume";
 
 // First, create the thunk
 export const fetchAllResumes = resumeFetch("resumes");
