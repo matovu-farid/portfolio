@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useAppSelector } from '../app/hooks'
 import { addTitle, addIntro, addName } from '../app/features/working_resume'
