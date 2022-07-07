@@ -41,7 +41,7 @@ export interface RProject {
 }
 export interface Resume {
   id: string,
-  basics: Basic,
+  basic: Basic,
   title: string,
   intro: string,
   links: string[],
