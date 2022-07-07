@@ -1,51 +1,56 @@
-
-export interface History {
-  job: string,
-  date: string,
-  points: string[],
-  location: string
+export interface Experience {
+  name: string;
+  date: string;
+  url: String;
+  startDate: string;
+  endDate: string;
+  highlights: string[];
+  location: string;
 }
 export interface Education {
-  institution: string,
-  date: string,
-  title: string,
+  institution: string;
+  url: string;
+  area: string;
+  studyType: string;
+  startDate: string;
+  endDate: string;
+  highlights: string[];
+  courses: string[] | null;
 }
 
-export interface RSkill {
-  frontEnd:string[],
-  backEnd:string[],
-  tools: string[]
-
+export interface ResumeSkill {
+  name: string,
+  keywords: string[]
 }
 
-export interface Profile {
-  network: String,
-  username: String,
-  url: String,
-  icon: String | null
+export interface ProfileLink {
+  network: String;
+  username: String;
+  url: String;
+  icon: String | null;
 }
 export interface Basic {
-  name: string,
-  image: string
-  email: string,
-  phone: string,
-  url: string,
-  summary: string,
-  profiles: Profile[]
-
-
+  name: string;
+  image: string;
+  email: string;
+  phone: string;
+  url: string;
+  summary: string;
+  profiles: ProfileLink[];
 }
-export interface RProject {
-  title: string,
-  points: string[]
+export interface ResumeProject {
+  name: string;
+  description: string;
+  highlights: string[];
+  keywords: string[];
+  url: string;
+  type: string;
+  roles: string[];
 }
 export interface Resume {
-  id: string,
-  basic: Basic,
-  title: string,
-  intro: string,
-  links: string[],
-  history: History[],
-  skills: RSkill[],
-  education: Education[]
+  basic: Basic;
+  projects: ResumeProject[];
+  experience: Experience[];
+  skills: ResumeSkill[];
+  education: Education[];
 }
