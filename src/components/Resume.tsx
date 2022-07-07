@@ -10,7 +10,7 @@ const ResumeComponent = ({resume,className}:Props) => {
   return (
 
     <div className={`flex flex-col border-2 shadow-lg rounded-lg ${className}`}>
-       <NavLink to={`/resumes/${resume.id}`}>
+       
 
         <div >
 
@@ -23,7 +23,7 @@ const ResumeComponent = ({resume,className}:Props) => {
             <p> {resume.description}</p>
           </div>
         </div>
-       </NavLink>
+      
       <div className="my-auto p-3">
         <Options resume={resume}></Options>
       </div>

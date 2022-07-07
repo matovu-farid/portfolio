@@ -17,13 +17,31 @@ export interface RSkill {
   tools: string[]
 
 }
+
+export interface Profile {
+  network: String,
+  username: String,
+  url: String,
+  icon: String | null
+}
+export interface Basic {
+  name: string,
+  image: string
+  email: string,
+  phone: string,
+  url: string,
+  summary: string,
+  profiles: Profile[]
+
+
+}
 export interface RProject {
   title: string,
   points: string[]
 }
 export interface Resume {
   id: string,
-  name: string,
+  basics: Basic,
   title: string,
   intro: string,
   links: string[],
