@@ -5,7 +5,6 @@ import workingProjectReducer from './features/working_project';
 import workingSkillReducer from './features/working_skill';
 import workingLanguageReducer from './features/working_language';
 import resumeReducer from './features/resume';
-import workingResumeReducer from './features/working_resume';
 
 import skillsReducer from './features/skills';
 import languagesReducer from './features/languages';
@@ -21,7 +20,6 @@ export const store = configureStore({
     skills: skillsReducer,
     languages: languagesReducer,
     resume: resumeReducer,
-    workingResume: workingResumeReducer
   },
 });
 

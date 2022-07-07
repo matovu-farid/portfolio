@@ -34,7 +34,7 @@ export const resumeSlice = createSlice({
 
       state.loading = true
       state.searched = state.all.filter(resume =>
-         resume.name.toLocaleLowerCase().includes(action.payload))
+         resume.basic.name.toLocaleLowerCase().includes(action.payload))
          state.loading = false
     },
     addSearchText: (state,action)=>{
@@ -57,7 +57,7 @@ export const resumeSlice = createSlice({
       updateAResume.fulfilled,
       (state, action: PayloadAction<any>) => {
         state.all = state.all.map((resume) => {
-          if (resume.id === action.payload.id) {
+          if ("" === action.payload.id) {
             return action.payload;
           }
           return resume;
@@ -69,7 +69,7 @@ export const resumeSlice = createSlice({
       deleteAResume.fulfilled,
       (state, action: PayloadAction<any>) => {
         state.all = state.all.filter(
-          (resume) => resume.id !== action.payload.id
+          (resume) => "resume.id" !== action.payload.id
         );
       }
     );

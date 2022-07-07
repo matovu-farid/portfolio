@@ -32,7 +32,7 @@ const updateResume = async (resume: any, currentCollection: string) => {
   return updateDoc(docRef, resume);
 };
 const deleteResume = async (resume: Resume, currentCollection: string) => {
-  let docRef = doc(collection(db, currentCollection), resume.id);
+  let docRef = doc(collection(db, currentCollection), "resume");
   try {
     await deleteDoc(docRef);
   } catch (error) {
